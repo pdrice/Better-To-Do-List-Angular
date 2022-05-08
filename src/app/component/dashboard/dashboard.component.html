@@ -1,0 +1,46 @@
+<div class="container-fluid bg-light">
+    <div class="container bg-light">
+        <div class="row mt-4" style="height:500px">
+            <div class="col">
+
+            </div>
+            <div class="col-md-6 bg-white shadow">
+                <div class="card bg-warning mt-4">
+                    <h4 class="text-white p-3">To Do List</h4>
+                </div>
+            <form >
+                <div class="shadow">
+                    <div class="input-group p-4">
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        name="inputTodo"
+                        placeholder="Enter Task" 
+                        [(ngModel)]="inputTodo"
+                        >
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-success" type="button" (click)="addTodo()">+</button>
+                        </div>
+                      </div>
+                </div>
+            </form>
+                <h4 class="text-primary mt-4">Tasks :</h4>
+
+                <div style="overflow-y:auto; height:350px;" >
+                    <div class="m-3">
+                        <div class="p-2 border" *ngFor="let todo of todos; let i = index">
+                            <div class="input-group  ps-3" >
+                                <div class="card col-md-10 border-0 " (click)="toggleDone(i)">
+                                    <p class="font-weight-bold">{{todo.content}}</p>
+                                </div>
+                             
+                                <div class="btn btn-outline-danger col" (click)="onDelete(i)">X</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
